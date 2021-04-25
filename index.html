@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Usman's Site</title>
+	
+	<!-- Main CSS file -->
+	<link rel="stylesheet" href="css/style.css" />
+	
+	
+</head>
+<body>
+
+	<div id="st-preloader">
+		<div id="pre-status">
+			<div class="preload-placeholder"></div>
+		</div>
+	</div>
+
+
+	<!-- HEADER -->
+	<header class="st-header st-fullHeight", style="width: 100%">
+		<div class="header-overlay"></div><!-- /HEADER OVERLY -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center st-header-content">
+					<div class="st-header-title">
+						<h2><span>Muhammad Usman Tahir</span></h2>
+						<h3><span>292749 | BSCS 9A</span></h3>
+						<p>Here I shall explain a little something about myself and how I was able to build the OS for this assigment .</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<a href="#service" class="mouse-icon hidden-xs">
+			<div class="wheel"></div>
+		</a>
+	</header>
+	<!-- /HEADER -->
+
+	<!-- SERVICE ICONS -->
+	<section id="service" class="service-icons">
+		<div class="container">
+			<div class="row">
+
+				<div class="col-sm-4 st-service-box">
+					<span><i class="fa fa-life-ring"></i></span>
+					<h3 class="text-uppercase">About Me</h3>
+					<p>
+						My name is Muhammad Usman Tahir, Class 9A, Roll number 292749. Born and bred in Islamabad. Currently suddently in NUST as a computer science major. As of right now I am proficient in C, C++, Java, python, mySql, HTML, css, javascript and starting today also Hugo.  																																	Beside coding I enjoy reading.  
+						</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- /SERVICE ICONS -->
+
+
+	<section class="subscribe">
+		<div class="color-overlay"></div><!-- /COLOR OVERLY -->
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-md-offset-3 subscribe-form">
+					<div class="st-subscribe-title text-center">
+						<h3>Assignment Description</h3>
+						<p style="font-size: 16px">I run into most problem during task 1 where I was faced with a plethora of bugs both big and small. However, I did not falter in the face of this horror. Rather I persevered with sheer will and the aid of those I call my friends I vanquished all the bugs.  
+  
+							My journey began with docker on windows. After having faced my first error, I quickly shifted gears and went with linux. There too I faced a new error (and loneliness since no one else I knew was using linux). Thus I finally decided to go with windows and the rest is history.  
+							
+							Here I shall chronicle my journey in two phases.  
+						   <ol style="color: white">
+							<li>Printing OK</li>
+							<li>Printing NUST Logo</li>
+						  </ol>
+						  
+						</p>
+
+						<h4 style="color: white">
+							1. Printing OK
+						</h4>
+
+						<p>
+													I started with by downloading docker and qemu. Then I made a Dockerfile for describing all the steps to make my enviornment image. This file was run on cmd to build the image.   
+
+						I then ran code on cmd to create an instance of the image i.e the container. Now I had access to the virtual machine.  
+
+						Made a boot loader in header.asm file locate the OS. Then I made main.asm file as the entry point to OS.  
+
+						Then I made linker file to link the OS together followed by grub.cfg file that will create the iso file to host OS.  
+
+						Now i made a Makerfile that hold all build commands for the OS.  
+
+						Finally I ran the OS in Qemu and "OK" was printed.  
+						</p>
+						
+						<h4 style="color: white">
+							2. Printing NUST Logo
+						</h4>
+
+						<p>
+							After accomplishing task 1, I did not face any errors. It was smooth sailing from here and I only had to follow the tutorial.  
+  
+First I modified the previous main.asm file.
+<ol style="color: white">  
+<li> Made two lables that reference top and bottom of the stack in .bss section which contains statically allocated variables. </li> 
+<li>Made function that confirms that OS has been loaded by the mutipli-boot loader.  </li>
+<li>Made function that checks CPU ID and gives CPU instructions. </li>
+<li> Made function that checks for long mode support (64 bit).</li>
+<li>We use virtual memory through paging to access 64bit mode.</li>
+<li>Made two functions to allow paging. first to setup page table and second to enable paging.  </li>
+</ol>
+<p style="color: white">
+New file main64.asm is created that is externally called by main.asm to enable long mode.   
+Next kernel is built.  
+Now a main.c file is created to use C code in. It is made in kernel subfolder. This code will print NUST logo. It is called in main6
+.asm.  
+Now an interface folder is created. which contains print.h file. This defines our printing interface.  
+print.c file is created in x86_64 folder. This describes the characters to be printed. 
+</p> 
+
+	<ol style="color: white">  
+	<li>Clear row function is created to print empty space. </li> 
+	<li>print char function is created to print character at appropriate place.    </li>
+	<li>New line function to move to next line. </li>
+	<li>print_set_color() function is created for changing the color. </li>
+	</ol>
+
+						<p style="color: white">Finally Makerfile is updated to accomodate .c file.  			
+							Finally I ran the output in Qemu.</p>
+
+						
+			</div>
+		</div>
+	</section>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery.parallax.js"></script>
+	<script type="text/javascript" src="js/smoothscroll.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+</body>
+</html>
